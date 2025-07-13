@@ -26,7 +26,8 @@ public class BalanceController {
 
   @Operation(summary = "Рассчитать баланс и лимит по clientId")
   @PostMapping(value = "/postBalances", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<ResponseDTO> postBalances(@Valid @RequestBody RequestDTO request) {
+  public ResponseEntity<ResponseDTO> postBalances(@Valid @RequestBody RequestDTO request)
+      throws Exception {
     log.info("[RQ] {}", request);
     ResponseDTO response = balanceService.calculateBalance(request);
     log.info("[RS] {}", response);
